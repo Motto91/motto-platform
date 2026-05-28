@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Motto — Bridge Your Career Gap with Micro-Experience</title>
+<meta name="description" content="Vetted short-term projects that heal resume gaps and act as stepping stones to full-time roles." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+<style>
+/* ── Reset & Tokens ── */
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --p:#4A9EE0;
+  --p-dark:#2378c3;
+  --p-deep:#1a5fa0;
+  --ps:#e8f4fd;
+  --ps2:#d0eafb;
+  --pg:linear-gradient(135deg,#4A9EE0 0%,#7EC8F4 100%);
+  --pg-deep:linear-gradient(135deg,#2378c3 0%,#4A9EE0 100%);
+  --bg:#f8fafc;
+  --bg2:#f0f6fc;
+  --card:#ffffff;
+  --bd:#e2eaf2;
+  --bd2:#c8dcee;
+  --fg:#0f172a;
+  --mu:#64748b;
+  --mu2:#94a3b8;
+  --warm:#fef3e8;
+  --wf:#92540a;
+  --sh-sm:0 1px 3px rgba(74,158,224,.08),0 1px 2px rgba(15,23,42,.04);
+  --sh-md:0 4px 16px rgba(74,158,224,.12),0 2px 6px rgba(15,23,42,.05);
+  --sh-lg:0 12px 40px rgba(74,158,224,.16),0 4px 12px rgba(15,23,42,.06);
+}
+html{font-family:'DM Sans',sans-serif;-webkit-font-smoothing:antialiased;color:var(--fg);background:var(--bg)}
+body{min-height:100vh}
+
+@keyframes shimmer{0%{background-position:-500px 0}100%{background-position:500px 0}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@keyframes scaleIn{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:scale(1)}}
+@keyframes popCheck{0%{transform:scale(0)}60%{transform:scale(1.18)}100%{transform:scale(1)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.app-shell{border:1px solid var(--bd);border-radius:14px;overflow:hidden;font-size:13px}
+.app-tabs{display:flex;gap:7px;padding:10px 14px;border-bottom:1px solid var(--bd);background:#fff;align-items:center}
+.tab{padding:5px 13px;border-radius:7px;border:1px solid var(--bd);background:transparent;font-size:12px;cursor:pointer;color:var(--mu);font-family:inherit;font-weight:500;transition:all .15s}
+.tab.on{background:var(--pg);color:#fff;border-color:transparent}
+.sec{display:none}.sec.on{display:block}
+
+.bp{display:inline-flex;align-items:center;gap:6px;padding:9px 18px;border-radius:10px;border:none;background:var(--pg);color:#fff;font-size:13px;font-weight:500;cursor:pointer;font-family:inherit;transition:opacity .15s,box-shadow .15s;box-shadow:var(--sh-sm)}
+.bp:hover{opacity:.9;box-shadow:var(--sh-md)}
+.bp:disabled{opacity:.55;cursor:not-allowed;box-shadow:none}
+.bg{background:transparent;border:1px solid var(--bd);color:var(--fg);border-radius:8px;padding:5px 12px;font-size:12px;cursor:pointer;font-family:inherit;font-weight:500;transition:all .15s}
+.bg:hover{background:var(--ps);border-color:var(--p);color:var(--p-dark)}
+
+.bdg{display:inline-flex;align-items:center;padding:3px 10px;border-radius:999px;font-size:11px;font-weight:500;cursor:pointer;border:none;font-family:inherit;transition:all .12s}
+.bdg.on{background:var(--pg);color:#fff;box-shadow:0 2px 8px rgba(74,158,224,.3)}
+.bdg.off{background:#f0f6fc;color:var(--fg)}
+.bdg.off:hover{background:var(--ps);color:var(--p-dark)}
+
+.pc{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:11px;transition:transform .15s,border-color .15s,box-shadow .15s}
+.pc:hover{transform:translateY(-2px);border-color:var(--bd2);box-shadow:var(--sh-md)}
+.av{width:38px;height:38px;border-radius:9px;background:var(--ps);display:flex;align-items:center;justify-content:center;font-weight:600;font-size:13px;color:var(--p-dark);flex-shrink:0}
+.tb{padding:2px 8px;border-radius:999px;font-size:11px;font-weight:500}
+.tv{background:#e8f5ee;color:#1a6644}
+.tp{background:var(--ps);color:var(--p-dark)}
+.tc{background:#fef3e8;color:#92540a}
+.to{background:#f5f3ff;color:#5b21b6}
+.bt{background:var(--ps);color:var(--p-dark);border-radius:999px;padding:2px 9px;font-size:11px;font-weight:500}
+.ir{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--bd);padding-top:11px;margin-top:auto}
+
+.do{display:flex;flex-direction:column;align-items:center;gap:4px;padding:10px 4px;border-radius:10px;border:1.5px solid var(--bd);background:var(--card);cursor:pointer;transition:all .15s;flex:1;min-width:0}
+.do:hover{border-color:var(--p);background:var(--ps)}
+.do.on{border-color:var(--p);background:var(--ps)}
+.di{width:28px;height:28px;border-radius:7px;display:flex;align-items:center;justify-content:center;background:#e8f1f8;transition:background .15s;flex-shrink:0}
+.do.on .di{background:var(--pg)}
+.ds{font-size:10px;font-weight:500;color:var(--mu);transition:color .15s;text-align:center;line-height:1.3}
+.do.on .ds{color:var(--p-dark)}
+.do.on .di i{color:#fff !important}
+
+.fl{font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--mu2);min-width:60px}
+.prog-bar{height:5px;background:var(--bd);border-radius:99px;overflow:hidden}
+.prog-fill{height:100%;background:var(--pg);border-radius:99px;transition:width .5s ease}
+</style>
+</head>
+<body style="padding:16px;background:var(--bg)">
+
+<div class="app-shell">
+  <!-- Tab bar -->
+  <div class="app-tabs">
+    <button class="tab on" onclick="showSec('landing',this)">Landing page</button>
+    <button class="tab" onclick="showSec('dashboard',this)">Dashboard</button>
+    <span id="leads-tab" style="margin-left:auto;font-size:11px;color:var(--p-dark);font-weight:600;display:none"></span>
+  </div>
+
+  <!-- ══════════════════ LANDING ══════════════════ -->
+  <div id="sec-landing" class="sec on" style="background:var(--bg);position:relative">
+
+    <!-- Navbar -->
+    <header style="border-bottom:1px solid var(--bd);background:rgba(248,250,252,.92);backdrop-filter:blur(10px);padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:52px;position:sticky;top:0;z-index:40">
+      <a href="#" style="display:flex;align-items:center;gap:9px;text-decoration:none">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="mgrad" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#7EC8F4"/>
+              <stop offset="100%" stop-color="#4A9EE0"/>
+            </linearGradient>
+          </defs>
+          <path d="M3 27 L3 10 Q3 5 7.5 5 Q10 5 11.5 8 L16 18 L20.5 8 Q22 5 24.5 5 Q29 5 29 10 L29 27" stroke="url(#mgrad)" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M11.5 22 Q16 27.5 20.5 22" stroke="url(#mgrad)" stroke-width="2.2" stroke-linecap="round" fill="none" opacity="1"/>
+          <path d="M13 24 Q16 27 19 24" stroke="url(#mgrad)" stroke-width="1.6" stroke-linecap="round" fill="none" opacity=".7"/>
+          <path d="M14.2 25.5 Q16 27 17.8 25.5" stroke="url(#mgrad)" stroke-width="1.1" stroke-linecap="round" fill="none" opacity=".45"/>
+        </svg>
+        <span style="font-size:15px;font-weight:600;color:var(--fg);letter-spacing:-.01em">motto</span>
+      </a>
+      <nav style="display:flex;gap:22px">
+        <a href="#features" style="font-size:12px;color:var(--mu);text-decoration:none;font-weight:500">Features</a>
+        <a href="#employers" style="font-size:12px;color:var(--mu);text-decoration:none;font-weight:500">For employers</a>
+        <a href="#how" style="font-size:12px;color:var(--mu);text-decoration:none;font-weight:500">How it works</a>
+      </nav>
+      <div style="display:flex;gap:7px">
+        <button class="bg" style="font-size:12px;padding:5px 12px" onclick="openModal()">Sign in</button>
+        <button class="bp" style="font-size:12px;padding:5px 13px" onclick="openModal()">Sign up</button>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section style="padding:52px 24px 40px;background:linear-gradient(180deg,#f8fafc 0%,#edf5fd 100%)">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center;max-width:820px;margin:0 auto">
+        <div style="animation:fadeUp .5s ease-out both">
+          <div style="display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:999px;border:1px solid var(--bd2);background:rgba(255,255,255,.7);font-size:11px;color:var(--mu);font-weight:500;margin-bottom:16px">
+            <span style="width:6px;height:6px;border-radius:50%;background:var(--p);display:inline-block"></span>
+            For job seekers, switchers &amp; gap-takers
+          </div>
+          <h1 style="font-size:28px;font-weight:700;line-height:1.15;letter-spacing:-.02em;color:var(--fg)">
+            Bridge your career gap with<br>
+            <span style="background:var(--pg-deep);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">micro-experience.</span>
+          </h1>
+          <p style="margin-top:12px;font-size:13px;color:var(--mu);line-height:1.7">With the average U.S. job search dragging over <strong style="color:var(--fg)">6 months</strong>, don't let your resume freeze. Fill your gap with active micro-experience instead.</p>
+          <div style="margin-top:14px;display:flex;align-items:center;gap:9px">
+            <div style="display:flex">
+              <div style="width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,#93c5fd,#60a5fa);border:2px solid #f8fafc;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:600;color:#fff">A</div>
+              <div style="width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,#7EC8F4,#4A9EE0);border:2px solid #f8fafc;margin-left:-6px;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:600;color:#fff">J</div>
+              <div style="width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,#4A9EE0,#2378c3);border:2px solid #f8fafc;margin-left:-6px;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:600;color:#fff">M</div>
+            </div>
+            <span id="proof" style="font-size:11px;color:var(--mu)"><strong style="color:var(--fg)">500+</strong> job seekers on the waitlist</span>
+          </div>
+          <div style="margin-top:16px;display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--bd);border-radius:12px;padding:5px 5px 5px 13px;box-shadow:var(--sh-sm)">
+            <i class="ti ti-search" style="font-size:14px;color:var(--mu2)"></i>
+            <span style="flex:1;font-size:12px;color:var(--mu2)">Search short-term projects...</span>
+            <button class="bp" style="font-size:12px;padding:6px 13px;border-radius:9px" onclick="openModal()">Get started free <i class="ti ti-arrow-right"></i></button>
+          </div>
+          <p style="margin-top:8px;font-size:11px;color:var(--mu2)">Free for job seekers · No credit card required</p>
+        </div>
+        <!-- Hero preview cards -->
+        <div style="background:rgba(74,158,224,.05);border:1px solid rgba(74,158,224,.18);border-radius:18px;padding:16px;display:flex;flex-direction:column;gap:9px;animation:fadeUp .5s .15s ease-out both">
+          <div style="background:#fff;border-radius:11px;padding:12px;border:1px solid var(--bd);box-shadow:var(--sh-sm)">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+              <div style="width:28px;height:28px;border-radius:6px;background:var(--ps);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;color:var(--p-dark)">G</div>
+              <div><p style="font-size:11px;color:var(--mu)">GreenFuture</p><p style="font-size:11px;font-weight:500">Social media campaign</p></div>
+              <span class="tb tv" style="margin-left:auto">Volunteer</span>
+            </div>
+            <div style="display:flex;gap:10px;font-size:11px;color:var(--mu)"><span><i class="ti ti-map-pin"></i> Remote</span><span><i class="ti ti-clock"></i> 3 weeks</span></div>
+          </div>
+          <div style="background:#fff;border-radius:11px;padding:12px;border:1px solid var(--bd2)">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+              <div style="width:28px;height:28px;border-radius:6px;background:var(--ps);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;color:var(--p-dark)">C</div>
+              <div><p style="font-size:11px;color:var(--mu)">Calmly Studio</p><p style="font-size:11px;font-weight:500">Booking widget in Next.js</p></div>
+              <span class="tb tc" style="margin-left:auto">Contractor</span>
+            </div>
+            <div style="display:flex;gap:10px;font-size:11px;color:var(--mu)"><span><i class="ti ti-map-pin"></i> Remote</span><span><i class="ti ti-clock"></i> 6 weeks</span></div>
+          </div>
+          <div style="background:#fff;border-radius:11px;padding:11px 12px;border:1px solid var(--bd)">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px">
+              <span style="font-size:10px;font-weight:600;color:var(--p-dark);letter-spacing:.04em;text-transform:uppercase">Beta spots</span>
+              <span id="spot-lbl" style="font-size:10px;color:var(--mu)">47 / 500 claimed</span>
+            </div>
+            <div class="prog-bar"><div id="prog" class="prog-fill" style="width:9.4%"></div></div>
+            <p style="margin-top:5px;font-size:10px;color:var(--mu2)">Early access closes at 500.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── REALITY CHECK STATS ── -->
+    <section style="padding:0 24px 28px">
+      <div style="max-width:820px;margin:0 auto;background:#fff;border:1px solid rgba(74,158,224,.2);border-radius:22px;padding:28px 28px 24px;box-shadow:var(--sh-md)">
+
+        <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 11px;border-radius:999px;background:var(--warm);font-size:10px;color:var(--wf);font-weight:600;letter-spacing:.02em">6-month reality check · U.S. Bureau of Labor Statistics</span>
+
+        <!-- 2-column cards -->
+        <div style="margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:14px">
+
+          <!-- Card 1: Avg job search -->
+          <div style="background:var(--bg2);border:1px solid var(--bd);border-radius:16px;padding:28px 24px;position:relative;overflow:hidden">
+            <span style="position:absolute;right:-10px;bottom:-18px;font-size:96px;font-weight:700;color:rgba(74,158,224,.06);line-height:1;pointer-events:none;user-select:none">25</span>
+            <p style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--p-dark)">Avg. U.S. job search</p>
+            <p style="margin-top:14px;font-size:58px;font-weight:700;letter-spacing:-.04em;line-height:1;background:var(--pg-deep);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">25.3</p>
+            <p style="margin-top:4px;font-size:18px;font-weight:600;color:var(--p-dark)">weeks</p>
+            <div style="margin-top:14px;padding-top:14px;border-top:1px solid var(--bd)">
+              <p style="font-size:14px;color:var(--mu);line-height:1.5">That's <strong style="color:var(--fg);font-size:15px">6.6 months</strong> of resume silence — long enough to cost you interviews you'd otherwise win.</p>
+            </div>
+          </div>
+
+          <!-- Card 2: Long-term unemployed -->
+          <div style="background:linear-gradient(145deg,#fff8f4,#fff3ee);border:1px solid #fddccc;border-radius:16px;padding:28px 24px;position:relative;overflow:hidden">
+            <span style="position:absolute;right:-10px;bottom:-18px;font-size:96px;font-weight:700;color:rgba(239,100,50,.06);line-height:1;pointer-events:none;user-select:none">%</span>
+            <p style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--wf)">Long-term unemployed</p>
+            <p style="margin-top:14px;font-size:58px;font-weight:700;letter-spacing:-.04em;line-height:1;color:var(--fg)">25.7</p>
+            <p style="margin-top:4px;font-size:18px;font-weight:600;color:var(--wf)">percent</p>
+            <div style="margin-top:14px;padding-top:14px;border-top:1px solid #fddccc">
+              <p style="font-size:14px;color:var(--mu);line-height:1.5">Of all job seekers are out of work for <strong style="color:var(--fg);font-size:15px">27+ weeks</strong> — over half a year with no income, no momentum.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Full-width summary -->
+        <div style="margin-top:20px;padding:20px 24px;background:var(--ps);border-radius:14px;border:1px solid var(--bd2);text-align:center">
+          <p style="font-size:15px;font-weight:500;color:var(--p-deep);line-height:1.65;max-width:600px;margin:0 auto">
+            Motto turns waiting into <strong style="font-weight:700;color:var(--p-dark)">active, resume-boosting milestones</strong>, preparing you to be the ideal candidate.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Pain points -->
+    <section id="features" style="padding:0 24px 28px">
+      <div style="max-width:820px;margin:0 auto;text-align:center;margin-bottom:22px">
+        <p style="font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--p-dark)">The reality</p>
+        <h2 style="margin-top:6px;font-size:22px;font-weight:700;color:var(--fg);letter-spacing:-.01em">Job hunting is harder than the job.</h2>
+      </div>
+      <div style="max-width:820px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
+        <div style="background:#fff;border:1px solid var(--bd);border-radius:14px;padding:18px;box-shadow:var(--sh-sm)">
+          <div style="width:36px;height:36px;border-radius:9px;background:var(--ps);display:flex;align-items:center;justify-content:center;color:var(--p-dark)"><i class="ti ti-compass" style="font-size:18px"></i></div>
+          <h3 style="margin-top:12px;font-size:13px;font-weight:600;color:var(--fg)">Navigating a career gap?</h3>
+          <p style="margin-top:5px;font-size:12px;color:var(--mu);line-height:1.6">Fill the silence with real, dated, verifiable work.</p>
+        </div>
+        <div style="background:#fff;border:1px solid var(--bd);border-radius:14px;padding:18px;box-shadow:var(--sh-sm)">
+          <div style="width:36px;height:36px;border-radius:9px;background:var(--ps);display:flex;align-items:center;justify-content:center;color:var(--p-dark)"><i class="ti ti-target" style="font-size:18px"></i></div>
+          <h3 style="margin-top:12px;font-size:13px;font-weight:600;color:var(--fg)">Lacking local experience?</h3>
+          <p style="margin-top:5px;font-size:12px;color:var(--mu);line-height:1.6">Get reference-able projects with teams in your market.</p>
+        </div>
+        <div style="background:#fff;border:1px solid var(--bd);border-radius:14px;padding:18px;box-shadow:var(--sh-sm)">
+          <div style="width:36px;height:36px;border-radius:9px;background:var(--ps);display:flex;align-items:center;justify-content:center;color:var(--p-dark)"><i class="ti ti-sparkles" style="font-size:18px"></i></div>
+          <h3 style="margin-top:12px;font-size:13px;font-weight:600;color:var(--fg)">Transitioning without a portfolio?</h3>
+          <p style="margin-top:5px;font-size:12px;color:var(--mu);line-height:1.6">Three small wins prove the new direction is real.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA banner -->
+    <section id="employers" style="padding:0 24px 28px">
+      <div style="max-width:820px;margin:0 auto;background:var(--pg);border-radius:18px;padding:28px;text-align:center;box-shadow:var(--sh-md)">
+        <h2 style="font-size:20px;font-weight:700;color:#fff;letter-spacing:-.01em">Don't let your career gap define you.</h2>
+        <p style="margin-top:6px;font-size:13px;color:rgba(255,255,255,.8)">Join 500+ job seekers already bridging the gap with Motto.</p>
+        <button onclick="openModal()" style="margin-top:18px;padding:10px 22px;border-radius:10px;border:none;background:#fff;color:var(--p-dark);font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;box-shadow:0 2px 8px rgba(0,0,0,.1)">Join the beta waitlist <i class="ti ti-arrow-right"></i></button>
+      </div>
+    </section>
+
+    <footer style="border-top:1px solid var(--bd);padding:14px 24px;display:flex;justify-content:space-between;align-items:center">
+      <p style="font-size:11px;color:var(--mu2)">© 2026 Motto. Built for the in-between.</p>
+      <div style="display:flex;gap:16px">
+        <a href="#" style="font-size:11px;color:var(--mu2);text-decoration:none">Privacy</a>
+        <a href="#" style="font-size:11px;color:var(--mu2);text-decoration:none">Terms</a>
+      </div>
+    </footer>
+
+    <!-- ══ WAITLIST MODAL ══ -->
+    <div id="moverlay" style="display:none;position:absolute;inset:0;z-index:50;background:rgba(15,23,42,.45);backdrop-filter:blur(4px);align-items:flex-start;justify-content:center;padding-top:40px">
+      <div style="background:#fff;border-radius:22px;border:1px solid var(--bd);width:430px;max-width:calc(100% - 32px);box-shadow:var(--sh-lg);animation:scaleIn .2s ease-out">
+
+        <!-- Form state -->
+        <div id="mform">
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:10px;padding:22px 22px 0">
+            <div>
+              <div style="display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border-radius:999px;background:var(--ps);font-size:11px;color:var(--p-dark);font-weight:600;margin-bottom:10px">
+                <i class="ti ti-users" style="font-size:12px"></i> 500+ job seekers waiting
+              </div>
+              <h2 style="font-size:18px;font-weight:700;color:var(--fg);letter-spacing:-.01em">Join the beta waitlist</h2>
+              <p style="margin-top:5px;font-size:12px;color:var(--mu);line-height:1.5">Get early access to Motto and be first to apply when we launch.</p>
+            </div>
+            <button onclick="closeModal()" style="background:transparent;border:none;cursor:pointer;color:var(--mu2);padding:2px;flex-shrink:0;margin-top:2px"><i class="ti ti-x" style="font-size:18px"></i></button>
+          </div>
+
+          <div style="padding:18px 22px 22px;display:flex;flex-direction:column;gap:15px">
+
+            <!-- Email field — flex row, zero overlap -->
+            <div>
+              <p style="font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--mu2);margin-bottom:7px">Email address</p>
+              <div style="display:flex;align-items:center;gap:10px;border:1.5px solid var(--bd);border-radius:10px;background:#fff;padding:0 14px;transition:border-color .15s,box-shadow .15s"
+                onfocusin="this.style.borderColor='#4A9EE0';this.style.boxShadow='0 0 0 3px rgba(74,158,224,.12)'"
+                onfocusout="this.style.borderColor='var(--bd)';this.style.boxShadow='none'">
+                <i class="ti ti-mail" style="font-size:16px;color:var(--mu2);flex-shrink:0"></i>
+                <input id="wl-email" type="email" placeholder="you@example.com"
+                  oninput="document.getElementById('eerr').style.display='none'"
+                  style="flex:1;border:none;outline:none;font-size:13px;font-family:inherit;color:var(--fg);background:transparent;padding:11px 0">
+              </div>
+              <p id="eerr" style="font-size:11px;color:#ef4444;margin-top:5px;display:none">Please enter a valid email address.</p>
+            </div>
+
+            <!-- Domain — all 5 options matching SheetDB -->
+            <div>
+              <p style="font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--mu2);margin-bottom:8px">Target job domain</p>
+              <div style="display:flex;gap:5px">
+                <div class="do" id="dom-Tech" onclick="selD('Tech')">
+                  <div class="di"><i class="ti ti-code" style="font-size:13px;color:var(--mu)"></i></div>
+                  <span class="ds">Tech</span>
+                </div>
+                <div class="do" id="dom-Marketing" onclick="selD('Marketing')">
+                  <div class="di"><i class="ti ti-speakerphone" style="font-size:13px;color:var(--mu)"></i></div>
+                  <span class="ds">Marketing</span>
+                </div>
+                <div class="do" id="dom-Design" onclick="selD('Design')">
+                  <div class="di"><i class="ti ti-palette" style="font-size:13px;color:var(--mu)"></i></div>
+                  <span class="ds">Design</span>
+                </div>
+                <div class="do" id="dom-Data" onclick="selD('Data')">
+                  <div class="di"><i class="ti ti-chart-bar" style="font-size:13px;color:var(--mu)"></i></div>
+                  <span class="ds">Data</span>
+                </div>
+                <div class="do" id="dom-Operations" onclick="selD('Operations')">
+                  <div class="di"><i class="ti ti-settings" style="font-size:13px;color:var(--mu)"></i></div>
+                  <span class="ds">Operations</span>
+                </div>
+              </div>
+              <p id="derr" style="font-size:11px;color:#ef4444;margin-top:6px;display:none">Please select a domain.</p>
+            </div>
+
+            <!-- Beta progress bar -->
+            <div style="background:var(--bg2);border-radius:10px;padding:11px 13px;border:1px solid var(--bd)">
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px">
+                <span style="font-size:11px;color:var(--mu)">Beta spots claimed</span>
+                <span id="mprog-lbl" style="font-size:11px;font-weight:600;color:var(--p-dark)">47 / 500</span>
+              </div>
+              <div class="prog-bar"><div id="mprog" class="prog-fill" style="width:9.4%"></div></div>
+            </div>
+
+            <button id="sbtn" class="bp" style="width:100%;justify-content:center;padding:12px;font-size:13px" onclick="submitWL()">
+              Join 500+ job seekers <i class="ti ti-arrow-right"></i>
+            </button>
+            <p id="neterr" style="font-size:11px;color:#ef4444;text-align:center;display:none;margin-top:-10px">Couldn't reach the server. Check your connection and try again.</p>
+            <p style="font-size:11px;color:var(--mu2);text-align:center;margin-top:-8px">No spam, ever. Unsubscribe anytime.</p>
+          </div>
+        </div>
+
+        <!-- Success state -->
+        <div id="msuccess" style="display:none;flex-direction:column;align-items:center;text-align:center;padding:34px 26px;gap:14px;animation:fadeUp .25s ease-out">
+          <div style="width:58px;height:58px;border-radius:50%;background:var(--ps);display:flex;align-items:center;justify-content:center;animation:popCheck .35s ease-out .05s both;box-shadow:0 0 0 8px var(--ps2)">
+            <i class="ti ti-check" style="font-size:24px;color:var(--p-dark)"></i>
+          </div>
+          <div>
+            <h2 style="font-size:19px;font-weight:700;color:var(--fg)">You're on the list!</h2>
+            <p style="margin-top:6px;font-size:12px;color:var(--mu);line-height:1.6;max-width:290px;margin-left:auto;margin-right:auto">We'll email you your exclusive Motto access link shortly. In the meantime, explore a preview of the dashboard.</p>
+          </div>
+          <div style="background:var(--ps);border-radius:12px;padding:13px 16px;border:1px solid var(--bd2);width:100%;text-align:left">
+            <p style="font-size:10px;font-weight:600;color:var(--p-dark);letter-spacing:.05em;text-transform:uppercase;margin-bottom:4px">Registered as</p>
+            <p id="semail" style="font-size:13px;font-weight:600;color:var(--fg)"></p>
+            <p id="sdomain" style="font-size:12px;color:var(--p-dark);margin-top:2px"></p>
+          </div>
+          <button class="bp" style="width:100%;justify-content:center;padding:12px;font-size:13px" onclick="goToDash()">Browse the dashboard preview <i class="ti ti-arrow-right"></i></button>
+          <button onclick="closeModal()" style="background:transparent;border:none;cursor:pointer;font-size:12px;color:var(--mu2);font-family:inherit">Maybe later</button>
+        </div>
+
+      </div>
+    </div>
+  </div><!-- /sec-landing -->
+
+  <!-- ══════════════════ DASHBOARD ══════════════════ -->
+  <div id="sec-dashboard" class="sec" style="background:var(--bg2);display:none">
+    <div style="display:flex;min-height:600px">
+
+      <!-- Sidebar -->
+      <div style="width:196px;border-right:1px solid var(--bd);background:#fff;padding:14px 10px;display:flex;flex-direction:column;gap:3px;flex-shrink:0">
+        <div style="display:flex;align-items:center;gap:8px;padding:0 4px 14px;border-bottom:1px solid var(--bd);margin-bottom:8px">
+          <svg width="22" height="22" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="mgrad2" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#7EC8F4"/>
+                <stop offset="100%" stop-color="#4A9EE0"/>
+              </linearGradient>
+            </defs>
+            <path d="M3 27 L3 10 Q3 5 7.5 5 Q10 5 11.5 8 L16 18 L20.5 8 Q22 5 24.5 5 Q29 5 29 10 L29 27" stroke="url(#mgrad2)" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <path d="M11.5 22 Q16 27.5 20.5 22" stroke="url(#mgrad2)" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+            <path d="M13 24 Q16 27 19 24" stroke="url(#mgrad2)" stroke-width="1.6" stroke-linecap="round" fill="none" opacity=".7"/>
+            <path d="M14.2 25.5 Q16 27 17.8 25.5" stroke="url(#mgrad2)" stroke-width="1.1" stroke-linecap="round" fill="none" opacity=".45"/>
+          </svg>
+          <span style="font-size:13px;font-weight:600;color:var(--fg)">motto</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:8px;background:var(--pg);cursor:pointer">
+          <i class="ti ti-compass" style="font-size:14px;color:#fff"></i>
+          <span style="font-size:12px;color:#fff;font-weight:500">Explore projects</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:8px;cursor:pointer">
+          <i class="ti ti-layout-grid-add" style="font-size:14px;color:var(--mu)"></i>
+          <span style="font-size:12px;color:var(--mu)">Post a project</span>
+        </div>
+      </div>
+
+      <!-- Main content -->
+      <div style="flex:1;display:flex;flex-direction:column;min-width:0">
+
+        <!-- Dashboard header -->
+        <div style="height:52px;border-bottom:1px solid var(--bd);display:flex;align-items:center;justify-content:space-between;padding:0 20px;background:rgba(248,250,252,.9);backdrop-filter:blur(8px)">
+          <div>
+            <p style="font-size:13px;font-weight:600;color:var(--fg)">Explore projects</p>
+            <p style="font-size:11px;color:var(--mu)">Find your next stepping stone</p>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px">
+            <button style="background:transparent;border:none;cursor:pointer;color:var(--mu)"><i class="ti ti-bell" style="font-size:16px"></i></button>
+            <div id="dash-av" style="width:32px;height:32px;border-radius:50%;background:var(--pg);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;box-shadow:var(--sh-sm)">M</div>
+          </div>
+        </div>
+
+        <div style="flex:1;padding:16px 20px;overflow-y:auto">
+
+          <!-- Welcome card -->
+          <div style="background:#fff;border:1px solid var(--bd);border-radius:14px;padding:18px;margin-bottom:14px;box-shadow:var(--sh-sm)">
+            <p style="font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--p-dark)">Welcome back</p>
+            <h2 id="dash-h" style="margin-top:5px;font-size:17px;font-weight:700;color:var(--fg);letter-spacing:-.01em">6 new projects matched your profile this week.</h2>
+            <p style="margin-top:4px;font-size:12px;color:var(--mu)">Apply to 2 more this week to unlock a free Resume Builder review.</p>
+          </div>
+
+          <!-- Filter panel — search + domain row + duration row -->
+          <div style="background:#fff;border:1px solid var(--bd);border-radius:13px;padding:13px 15px;margin-bottom:13px;box-shadow:var(--sh-sm)">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:11px">
+              <div style="flex:1;display:flex;align-items:center;gap:8px;border:1px solid var(--bd);border-radius:9px;padding:6px 10px;background:var(--bg2)">
+                <i class="ti ti-search" style="font-size:13px;color:var(--mu2)"></i>
+                <input id="q" type="text" placeholder="Search by title, org, or skill..." oninput="renderCards()" style="border:none;background:transparent;font-size:12px;outline:none;flex:1;color:var(--fg);font-family:inherit">
+              </div>
+              <button class="bg" style="font-size:12px;display:flex;align-items:center;gap:5px"><i class="ti ti-adjustments-horizontal" style="font-size:13px"></i> Filters</button>
+            </div>
+            <!-- Domain row -->
+            <div style="display:flex;align-items:center;padding:9px 0;border-top:1px solid var(--bg2)">
+              <span class="fl">Domain</span>
+              <div style="display:flex;flex-wrap:wrap;gap:5px">
+                <span id="d-All"       class="bdg on"  onclick="setD('All')">All</span>
+                <span id="d-Marketing" class="bdg off" onclick="setD('Marketing')">Marketing</span>
+                <span id="d-Tech"      class="bdg off" onclick="setD('Tech / Dev')">Tech / Dev</span>
+                <span id="d-Design"    class="bdg off" onclick="setD('Design')">Design</span>
+                <span id="d-Data"      class="bdg off" onclick="setD('Data')">Data</span>
+              </div>
+            </div>
+            <!-- Duration row -->
+            <div style="display:flex;align-items:center;padding:9px 0;border-top:1px solid var(--bg2)">
+              <span class="fl">Duration</span>
+              <div style="display:flex;flex-wrap:wrap;gap:5px">
+                <span id="dur-Any"   class="bdg on"  onclick="setDur('Any duration')">Any duration</span>
+                <span id="dur-Under" class="bdg off" onclick="setDur('Under 1 month')">Under 1 month</span>
+                <span id="dur-1-3"   class="bdg off" onclick="setDur('1-3 months')">1–3 months</span>
+                <span id="dur-Ong"   class="bdg off" onclick="setDur('Ongoing')">Ongoing</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:11px">
+            <p id="count-line" style="font-size:12px;color:var(--mu)"></p>
+            <p style="font-size:11px;color:var(--mu2)">Sorted by resume impact</p>
+          </div>
+
+          <div id="cards" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px"></div>
+          <div id="empty" style="display:none;border:1.5px dashed var(--bd);border-radius:13px;padding:32px;text-align:center">
+            <p style="font-size:12px;color:var(--mu)">No projects match these filters. Try widening the search.</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div><!-- /sec-dashboard -->
+
+</div><!-- /app-shell -->
+
+<script>
+/* ── Data ── */
+const PROJECTS = [
+  { title:"3-week social media campaign for climate NGO", org:"GreenFuture", type:"Volunteer", loc:"Remote", dur:"3 weeks", domain:"Marketing", impact:4, desc:"Lead a coordinated Instagram + TikTok push around COP outcomes. Real reach, real metrics.", benefits:["Build portfolio piece","Work with a real NGO team"] },
+  { title:"Build a booking widget in Next.js", org:"Calmly Studio", type:"Contractor", loc:"Remote", dur:"6 weeks", domain:"Tech / Dev", impact:5, desc:"Ship a production booking widget consumed by 30+ partner sites. TypeScript, tests, the works.", benefits:["Ship production code","Learn agile team workflow"] },
+  { title:"Brand refresh for a local coffee roastery", org:"Northbean Roasters", type:"Part-time", loc:"Hybrid · Berlin", dur:"1 month", domain:"Design", impact:4, desc:"Lightweight rebrand: type system, packaging refresh, and Figma library handover.", benefits:["Gain EU local experience"] },
+  { title:"Data cleanup for maternal health study", org:"OpenHealth Lab", type:"Volunteer", loc:"Remote", dur:"2 weeks", domain:"Data", impact:3, desc:"Stitch 4 messy CSV exports into a clean panel dataset. Document everything.", benefits:[] },
+  { title:"Contribute to a popular OSS UI library", org:"shadcn/ui community", type:"Open Source", loc:"Remote", dur:"Ongoing", domain:"Tech / Dev", impact:5, desc:"Pick up good-first-issue tickets and merge real PRs into a library used by 100k+ devs.", benefits:["Build public GitHub portfolio","Get reviewed by senior maintainers"] },
+  { title:"Lifecycle email series for SaaS launch", org:"Quill HQ", type:"Contractor", loc:"Remote", dur:"3 weeks", domain:"Marketing", impact:4, desc:"Write and ship a 6-email onboarding sequence. Bring opinions on copy and segmentation.", benefits:[] },
+];
+
+const TB = { Volunteer:"tb tv", "Part-time":"tb tp", Contractor:"tb tc", "Open Source":"tb to" };
+
+/* Domain map — UI label → SheetDB column value */
+const DMAP = {
+  Tech:       "Technology & Engineering",
+  Marketing:  "Marketing & Growth",
+  Design:     "Design & Creative",
+  Data:       "Data & Product Management",
+  Operations: "Operations & Strategy"
+};
+
+/* SheetDB endpoint */
+const SHEETDB = "https://sheetdb.io/api/v1/4zn2090zgogpw";
+
+let curD = "All", curDur = "Any duration", dashLoaded = false, selDomain = null, leads = [], BASE = 47;
+
+/* ── Section navigation ── */
+function showSec(id, btn) {
+  document.querySelectorAll('.sec').forEach(s => { s.style.display = 'none'; s.classList.remove('on'); });
+  const el = document.getElementById('sec-' + id);
+  el.style.display = 'block'; el.classList.add('on');
+  document.querySelectorAll('.tab').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+  if (id === 'dashboard' && !dashLoaded) loadDash();
+}
+
+/* ── Modal ── */
+function openModal() {
+  const ov = document.getElementById('moverlay');
+  ov.style.display = 'flex';
+  document.getElementById('mform').style.display = 'block';
+  document.getElementById('msuccess').style.display = 'none';
+  document.getElementById('wl-email').value = '';
+  selDomain = null;
+  document.querySelectorAll('.do').forEach(e => e.classList.remove('on'));
+  ['eerr', 'derr', 'neterr'].forEach(id => document.getElementById(id).style.display = 'none');
+  const btn = document.getElementById('sbtn');
+  btn.disabled = false;
+  btn.innerHTML = 'Join 500+ job seekers <i class="ti ti-arrow-right"></i>';
+}
+
+function closeModal() {
+  document.getElementById('moverlay').style.display = 'none';
+}
+
+function selD(d) {
+  selDomain = d;
+  document.querySelectorAll('.do').forEach(e => e.classList.remove('on'));
+  document.getElementById('dom-' + d).classList.add('on');
+  document.getElementById('derr').style.display = 'none';
+}
+
+function isEmail(e) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e); }
+
+/* ── Submit to SheetDB ── */
+async function submitWL() {
+  const email = document.getElementById('wl-email').value.trim();
+  let ok = true;
+  if (!isEmail(email)) { document.getElementById('eerr').style.display = 'block'; ok = false; }
+  if (!selDomain)       { document.getElementById('derr').style.display = 'block'; ok = false; }
+  if (!ok) return;
+
+  const btn = document.getElementById('sbtn');
+  btn.disabled = true;
+  btn.innerHTML = '<span style="display:inline-flex;align-items:center;gap:7px"><span style="width:14px;height:14px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;display:inline-block"></span>Joining...</span>';
+  document.getElementById('neterr').style.display = 'none';
+
+  try {
+    const res = await fetch(SHEETDB, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Accept": "application/json" },
+      body: JSON.stringify({ data: [{ Email: email, Domain: DMAP[selDomain] }] })
+    });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+  } catch (e) {
+    document.getElementById('neterr').style.display = 'block';
+    btn.disabled = false;
+    btn.innerHTML = 'Join 500+ job seekers <i class="ti ti-arrow-right"></i>';
+    return;
+  }
+
+  /* Success — update counters */
+  leads.push({ email, domain: selDomain });
+  const n   = BASE + leads.length;
+  const pct = Math.min(n / 500 * 100, 100).toFixed(1) + '%';
+
+  document.getElementById('spot-lbl').textContent  = n + ' / 500 claimed';
+  document.getElementById('prog').style.width       = pct;
+  document.getElementById('mprog-lbl').textContent  = n + ' / 500';
+  document.getElementById('mprog').style.width      = pct;
+  document.getElementById('proof').innerHTML        = '<strong style="color:var(--fg)">' + n + '+</strong> job seekers on the waitlist';
+
+  const t = document.getElementById('leads-tab');
+  t.style.display  = 'inline';
+  t.textContent    = leads.length + ' lead' + (leads.length > 1 ? 's' : '') + ' captured ✓';
+
+  document.getElementById('semail').textContent  = email;
+  document.getElementById('sdomain').textContent = 'Domain: ' + selDomain + ' — ' + DMAP[selDomain];
+  document.getElementById('mform').style.display    = 'none';
+  document.getElementById('msuccess').style.display = 'flex';
+
+  /* Personalise dashboard */
+  const first = email.split('@')[0];
+  document.getElementById('dash-h').textContent  = 'Welcome, ' + first + '! Here are projects matching ' + selDomain + '.';
+  document.getElementById('dash-av').textContent = first.charAt(0).toUpperCase();
+  curD = selDomain === 'Tech' ? 'Tech / Dev' : selDomain;
+  if (!dashLoaded) { dashLoaded = true; }
+  renderCards();
+  setDBadge(curD);
+}
+
+function goToDash() {
+  closeModal();
+  showSec('dashboard', document.querySelectorAll('.tab')[1]);
+}
+
+/* ── Dashboard ── */
+function loadDash() { dashLoaded = true; renderCards(); }
+
+function renderCards() {
+  if (!dashLoaded) return;
+  const q = (document.getElementById('q').value || '').toLowerCase();
+  const list = PROJECTS.filter(p => {
+    if (curD !== 'All' && p.domain !== curD) return false;
+    if (curDur === 'Under 1 month' && !/week|1 month/i.test(p.dur)) return false;
+    if (curDur === '1-3 months'    && !/(1 month|2 month|3 month|6 weeks)/i.test(p.dur)) return false;
+    if (curDur === 'Ongoing'       && !/ongoing/i.test(p.dur)) return false;
+    if (q && !(p.title + p.org + p.desc).toLowerCase().includes(q)) return false;
+    return true;
+  });
+
+  document.getElementById('count-line').innerHTML = '<span style="font-weight:600;color:var(--fg)">' + list.length + '</span> projects available';
+  const g   = document.getElementById('cards');
+  const emp = document.getElementById('empty');
+
+  if (!list.length) { g.innerHTML = ''; emp.style.display = 'block'; return; }
+  emp.style.display = 'none';
+
+  g.innerHTML = list.map(p => `
+    <article class="pc">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px">
+        <div style="display:flex;align-items:center;gap:8px">
+          <div class="av">${p.org.charAt(0)}</div>
+          <div>
+            <p style="font-size:10px;color:var(--mu)">${p.org}</p>
+            <p style="font-size:11px;font-weight:500">${p.domain}</p>
+          </div>
+        </div>
+        <span class="${TB[p.type]}">${p.type}</span>
+      </div>
+      <div>
+        <h3 style="font-size:13px;font-weight:600;color:var(--fg);line-height:1.35">${p.title}</h3>
+        <p style="margin-top:4px;font-size:11px;color:var(--mu);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">${p.desc}</p>
+      </div>
+      <div style="display:flex;gap:10px;font-size:11px;color:var(--mu)">
+        <span><i class="ti ti-map-pin"></i> ${p.loc}</span>
+        <span><i class="ti ti-clock"></i> ${p.dur}</span>
+      </div>
+      ${p.benefits.length ? `<div style="display:flex;flex-wrap:wrap;gap:5px">${p.benefits.map(b => `<span class="bt">${b}</span>`).join('')}</div>` : ''}
+      <div class="ir">
+        <div>
+          <p style="font-size:9px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--mu2)">Resume impact</p>
+          <div style="margin-top:4px;display:flex;gap:2px">
+            ${Array.from({length:5}).map((_,i) => `<i class="ti ti-star${i < p.impact ? '-filled' : ''}" style="font-size:12px;color:${i < p.impact ? 'var(--p)' : 'var(--bd)'}"></i>`).join('')}
+          </div>
+        </div>
+        <button class="bg" style="font-size:11px;display:flex;align-items:center;gap:3px">View &amp; apply <i class="ti ti-external-link" style="font-size:12px"></i></button>
+      </div>
+    </article>`).join('');
+}
+
+function setD(d) { curD = d; setDBadge(d); renderCards(); }
+
+function setDBadge(d) {
+  ['All','Marketing','Tech','Design','Data'].forEach(k => {
+    const el = document.getElementById('d-' + k);
+    if (el) el.className = 'bdg off';
+  });
+  const m = { 'All':'All', 'Marketing':'Marketing', 'Tech / Dev':'Tech', 'Design':'Design', 'Data':'Data' };
+  const el = document.getElementById('d-' + m[d]);
+  if (el) el.className = 'bdg on';
+}
+
+function setDur(d) {
+  curDur = d;
+  ['Any','Under','1-3','Ong'].forEach(k => document.getElementById('dur-' + k).className = 'bdg off');
+  const m = { 'Any duration':'Any', 'Under 1 month':'Under', '1-3 months':'1-3', 'Ongoing':'Ong' };
+  document.getElementById('dur-' + m[d]).className = 'bdg on';
+  renderCards();
+}
+</script>
+</body>
+</html>
